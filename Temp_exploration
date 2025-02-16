@@ -1,0 +1,37 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Temperature data
+days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+temps = [25, 23, 27, 29, 28, 26, 24]
+
+# Create a figure with three subplots
+fig, axs = plt.subplots(3, figsize=(8, 10))
+
+# Plot the temperature trend in the first subplot
+axs[0].plot(days, temps, marker='o', color='b')
+axs[0].set_title('Temperature Trend')
+axs[0].set_xlabel('Day')
+axs[0].set_ylabel('Temperature (°C)')
+axs[0].grid(axis='both', linestyle='--', color='gray')
+#axs[0].xticks(rotation=45)
+
+# Plot the temperature distribution in the second subplot
+axs[1].hist(temps, bins=5, edgecolor='black')
+axs[1].set_title('Temperature Distribution')
+axs[1].set_xlabel('Temperature (°C)')
+axs[1].set_ylabel('Frequency')
+
+# Plot the temperature vs day of the week in the third subplot
+axs[2].scatter(days, temps)
+axs[2].set_title('Temperature vs Day of the Week')
+axs[2].set_xlabel('Day')
+axs[2].set_ylabel('Temperature (°C)')
+
+# Add a title to the dashboard
+fig.suptitle('Temperature Analysis Dashboard')
+
+# Customize the layout
+fig.tight_layout(rect=[0, 0.03, 1, 0.95])
+
+plt.show()
