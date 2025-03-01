@@ -1,0 +1,27 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+data = {
+    'Country': ['USA', 'Canada', 'Mexico', 'USA', 'Canada', 'Mexico', 'USA', 'Canada', 'Mexico'],
+    'Year': [2010, 2010, 2010, 2011, 2011, 2011, 2012, 2012, 2012],
+    'GDP': [14.96, 1.56, 1.04, 15.19, 1.73, 1.15, 15.68, 1.83, 1.23],
+    'Population': [308.7, 34.0, 112.3, 311.4, 34.5, 114.8, 314.1, 35.0, 117.3]
+}
+
+df = pd.DataFrame(data)
+
+#mean_gdp = df.groupby('Country')['GDP'].mean()
+#print(mean_gdp)
+
+mean_gdp = df.groupby('Country')['GDP'].mean()
+print(mean_gdp)
+
+mean_population = df.groupby('Country')['Population'].mean()
+print(mean_population)
+
+# bar chart to compare GDP across countries
+plt.figure(figsize=(8,6))
+sns.barplot(x='Country', y ='GDP', data=df)
+plt.title('GDP by Country')
+plt.show()
