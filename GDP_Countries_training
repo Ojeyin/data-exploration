@@ -25,3 +25,4 @@ plt.figure(figsize=(8,6))
 sns.barplot(x='Country', y ='GDP', data=df)
 plt.title('GDP by Country')
 plt.show()
+#end of code
